@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 16:36:55 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/02/23 18:42:08 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/02/24 22:53:19 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		res[i] = s1[i];
 		i++;
 	}
-	while (s1[j] != '\0')
+	while (s2[j] != '\0')
 	{
 		res[i] = s2[j];
 		i++;

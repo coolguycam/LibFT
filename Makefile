@@ -6,27 +6,27 @@
 #    By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 12:14:12 by cdimitro          #+#    #+#              #
-#    Updated: 2019/02/22 21:01:42 by cdimitro         ###   ########.fr        #
+#    Updated: 2019/02/24 23:24:19 by cdimitro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+TOTO = libft.a
 
 SRC = *.c
 
 OFILES = *.o
 
-all: $(NAME)
+all: $(TOTO)
 
-$(NAME):
+$(TOTO):
 	gcc -Wall -Wextra -Werror -c $(SRC) -I libft.h
-	ar rc $(NAME) $(OFILES)
-	ranlib $(NAME)
+	ar rc $(TOTO) $(OFILES)
+	ranlib $(TOTO)
 
 clean:
 	/bin/rm -f *.o
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	/bin/rm -f $(TOTO)
 
 re: fclean all
