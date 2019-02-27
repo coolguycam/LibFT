@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 21:03:40 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/02/24 00:46:19 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/02/27 01:25:40 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+
+typedef	struct	s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}				t_list;
 
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
