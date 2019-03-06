@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_word_delim.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/23 16:43:24 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/06 04:43:28 by cdimitro         ###   ########.fr       */
+/*   Created: 2019/03/06 04:25:24 by cdimitro          #+#    #+#             */
+/*   Updated: 2019/03/06 04:44:27 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		**ft_strsplit(char const *s, char c)
+char	*ft_word_delim(char const *s, unsigned int start, char c)
 {
 	int		i;
-	int		j;
-	int		k;
-	char	**res;
+	int		store;
+	int		size;
+	char	*res;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	j = ft_word_count(s, c);
-	k = 0;
-	if (!(res = (char**)malloc(sizeof(char*) * j + 1)))
-		return (NULL);
-	while (i < j)
+	store = start;
+	size = 1;
+	while (s[store] != c)
 	{
-		while (s[k] == c && s[k])
-			k++;
-		res[i] = ft_word_delim(s, k, c);
-		i++;
-		while (s[k] != c && s[k])
-			k++;
+		size++;
+		store++;
 	}
-	res[i] = NULL;
+	if (!(res = (char*)malloc(size)))
+		return (NULL);
+	res = (char*)malloc(size);
+	while (s[start] != c)
+	{
+		res[i] = s[start];
+		i++;
+		start++;
+	}
+	res[i] = '\0';
 	return (res);
 }

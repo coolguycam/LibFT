@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 21:03:40 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/06 03:16:01 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/06 04:41:28 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ char			*ft_strcat(char *s1, const char *s2);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
+char			*ft_itoa_pos(int n, int count);
+char			*ft_itoa_neg(int n, int count);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 char			*ft_strstr(const char *haystack, const char *needle);
@@ -83,5 +85,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
+int				ft_word_count(char const *s, char c);
+char			*ft_word_delim(char const *s, unsigned int start, char c);
 
 #endif

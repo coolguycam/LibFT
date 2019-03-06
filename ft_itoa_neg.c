@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_itoa_neg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/23 16:43:24 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/06 04:43:28 by cdimitro         ###   ########.fr       */
+/*   Created: 2019/03/06 04:39:41 by cdimitro          #+#    #+#             */
+/*   Updated: 2019/03/06 04:39:59 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		**ft_strsplit(char const *s, char c)
+char	*ft_itoa_neg(int n, int count)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**res;
+	char *res;
 
-	if (!s)
+	if (!(res = (char*)malloc(sizeof(char) * count + 2)))
 		return (NULL);
-	i = 0;
-	j = ft_word_count(s, c);
-	k = 0;
-	if (!(res = (char**)malloc(sizeof(char*) * j + 1)))
-		return (NULL);
-	while (i < j)
+	res = (char*)malloc(sizeof(char) * count + 2);
+	res[0] = '-';
+	res[count + 1] = '\0';
+	n = -n;
+	while (count >= 1)
 	{
-		while (s[k] == c && s[k])
-			k++;
-		res[i] = ft_word_delim(s, k, c);
-		i++;
-		while (s[k] != c && s[k])
-			k++;
+		res[count] = (n % 10) + '0';
+		n /= 10;
+		count--;
 	}
-	res[i] = NULL;
 	return (res);
 }

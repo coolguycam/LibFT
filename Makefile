@@ -6,7 +6,7 @@
 #    By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 12:14:12 by cdimitro          #+#    #+#              #
-#    Updated: 2019/03/06 03:26:00 by cdimitro         ###   ########.fr        #
+#    Updated: 2019/03/06 04:40:59 by cdimitro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlen.c ft_strmap.c \
 	ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c \
 	ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c \
-	ft_strsub.c ft_strtrim.c 
+	ft_strsub.c ft_strtrim.c ft_swap.c ft_itoa_pos.c ft_itoa_neg.c \
+	ft_word_count.c ft_word_delim.c
+
 
 OFILES = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 	ft_isdigit.o ft_isprint.o ft_itoa.o ft_toupper.o ft_tolower.o \
@@ -36,7 +38,8 @@ OFILES = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 	ft_striter.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlen.o \
 	ft_strmap.o ft_strmapi.o ft_strncat.o ft_strncmp.o ft_strncpy.o \
 	ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o \
-	ft_strstr.o ft_strsub.o ft_strtrim.o
+	ft_strstr.o ft_strsub.o ft_strtrim.o ft_swap.o ft_itoa_pos.o \
+	ft_itoa_neg.o ft_word_count.o ft_word_delim.o
 
 $(NAME):
 	gcc -Wall -Wextra -Werror -c $(SRC) -I libft.h
