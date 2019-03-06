@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 16:53:43 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/01 01:16:03 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/06 02:27:34 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,24 @@
 
 char	*ft_strtrim(char const *s)
 {
-	int		i;
-	int		j;
-	int		k;
+	size_t	i;
+	size_t	j;
 	char	*res;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = ft_strlen(s) - 1;
-	k = 0;
-	while ((s[i] == ' ' || s[i] == '\t' || s[i] == '\n') && (s[i] != '\0'))
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
 		i++;
 	if (s[i] == '\0')
 		return (ft_strdup(""));
-	while (s[j] == ' ' || s[j] == '\t' || s[j] == '\n')
+	while ((s[j] == ' ' || s[j] == '\t' || s[j] == '\n') && j > 0)
 		j--;
-	if (!(res = (char*)malloc(j - i + 1)))
+	if (!(res = (char*)malloc(j - i + 2)))
 		return (NULL);
-	res = (char*)malloc(j - i + 1);
-	while (i <= j)
-	{
-		res[k] = s[i];
-		i++;
-		k++;
-	}
-	res[k] = '\0';
+	res = (char*)malloc(j - i + 2);
+	res[j - i + 1] = '\0';
+	ft_strncpy(res, &s[i], j - i + 1);
 	return (res);
 }

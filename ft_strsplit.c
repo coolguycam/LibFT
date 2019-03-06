@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 16:43:24 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/02 01:15:15 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/06 02:08:29 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ char	**ft_strsplit(char const *s, char c)
 	int		k;
 	char	**res;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = ft_word_count(s, c);
 	k = 0;
-	if (!(res = (char**)malloc(sizeof(char*) * j)))
+	if (!(res = (char**)malloc(sizeof(char*) * j + 1)))
 		return (NULL);
-	res = (char**)malloc(sizeof(char*) * j);
 	while (i < j)
 	{
 		while (s[k] == c && s[k])
@@ -34,5 +35,6 @@ char	**ft_strsplit(char const *s, char c)
 		while (s[k] != c && s[k])
 			k++;
 	}
+	res[i] = NULL;
 	return (res);
 }
