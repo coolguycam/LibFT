@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 00:16:04 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/02 01:25:18 by cdimitro         ###   ########.fr       */
+/*   Created: 2019/02/28 23:41:28 by cdimitro          #+#    #+#             */
+/*   Updated: 2019/03/02 00:20:13 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	int		i;
-	int		j;
-	char	*res;
+	t_list *temp;
 
-	i = 0;
-	res = (char*)haystack;
-	if (needle[i] == '\0')
-		return (res);
-	while (res[i] != '\0')
+	while (lst != NULL)
 	{
-		j = 0;
-		while (res[i + j] == needle[j])
-		{
-			if (needle[j + 1] == '\0')
-				return (&res[i]);
-			j++;
-		}
-		i++;
+		temp = lst->next;
+		f(lst);
+		lst = temp;
 	}
-	return (NULL);
 }

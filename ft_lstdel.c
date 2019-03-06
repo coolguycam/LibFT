@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 00:16:04 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/02 01:25:18 by cdimitro         ###   ########.fr       */
+/*   Created: 2019/02/28 23:40:08 by cdimitro          #+#    #+#             */
+/*   Updated: 2019/03/01 23:48:45 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int		i;
-	int		j;
-	char	*res;
+	t_list *tmp;
+	t_list *ptr;
 
-	i = 0;
-	res = (char*)haystack;
-	if (needle[i] == '\0')
-		return (res);
-	while (res[i] != '\0')
+	if (alst == NULL)
+		return ;
+	ptr = *alst;
+	while (ptr != NULL)
 	{
-		j = 0;
-		while (res[i + j] == needle[j])
-		{
-			if (needle[j + 1] == '\0')
-				return (&res[i]);
-			j++;
-		}
-		i++;
+		tmp = ptr->next;
+		ft_lstdelone(&ptr, del);
+		ptr = tmp;
 	}
-	return (NULL);
+	*alst = NULL;
 }

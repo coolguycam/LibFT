@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 16:43:24 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/02/26 13:39:21 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/02 01:15:15 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_strsplit(char const *s, char c)
 	char	**res;
 
 	i = 0;
-	j = ft_wordcount(s, c);
+	j = ft_word_count(s, c);
 	k = 0;
 	if (!(res = (char**)malloc(sizeof(char*) * j)))
 		return (NULL);

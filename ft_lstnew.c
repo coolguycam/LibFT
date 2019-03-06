@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 00:16:04 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/02 01:25:18 by cdimitro         ###   ########.fr       */
+/*   Created: 2019/02/28 23:46:35 by cdimitro          #+#    #+#             */
+/*   Updated: 2019/03/02 00:55:11 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	int		i;
-	int		j;
-	char	*res;
+	t_list	*res;
 
-	i = 0;
-	res = (char*)haystack;
-	if (needle[i] == '\0')
-		return (res);
-	while (res[i] != '\0')
+	if (!(res = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content == NULL)
 	{
-		j = 0;
-		while (res[i + j] == needle[j])
-		{
-			if (needle[j + 1] == '\0')
-				return (&res[i]);
-			j++;
-		}
-		i++;
+		res->content = NULL;
+		res->content_size = 0;
 	}
-	return (NULL);
+	else
+	{
+		if (!(res->content = malloc(content_size)))
+		{
+			free(res);
+			return (NULL);
+		}
+		ft_memcpy(res->content, content, content_size);
+		res->content_size = content_size;
+	}
+	res->next = NULL;
+	return (res);
 }
