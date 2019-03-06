@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 21:01:00 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/02/25 07:09:42 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/05 20:25:44 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int		ft_atoi(const char *str)
 		sign = -1;
 		i++;
 	}
+	else if (str[i] == '+')
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + str[i] - '0';

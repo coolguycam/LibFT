@@ -6,7 +6,7 @@
 #    By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 12:14:12 by cdimitro          #+#    #+#              #
-#    Updated: 2019/03/02 00:57:20 by cdimitro         ###   ########.fr        #
+#    Updated: 2019/03/05 20:01:11 by cdimitro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ $(NAME):
 all: $(NAME)
 
 clean:
-	/bin/rm -f *.o
+	/bin/rm -f $(OFILES) 
 
 fclean: clean
 	/bin/rm -f $(NAME)
