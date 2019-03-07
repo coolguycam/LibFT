@@ -6,13 +6,13 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 22:28:57 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/06 04:42:20 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/06 19:51:55 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		store;
 	int		count;

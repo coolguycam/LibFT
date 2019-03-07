@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 00:07:51 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/02/23 18:19:40 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/06 19:56:59 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_memalloc(size_t size)
 {
-	unsigned char *res;
+	void *res;
 
-	if (!(res = (unsigned char*)malloc(sizeof(char) * size)))
+	if (!(res = (void*)malloc(size)))
 		return (NULL);
-	res = (unsigned char*)malloc(sizeof(char) * size);
+	res = (void*)malloc(size);
 	ft_bzero(res, size);
 	return (res);
 }
