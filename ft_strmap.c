@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 22:22:15 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/06 02:24:57 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/06 22:41:22 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	i = 0;
 	if (!s || f == NULL)
 		return (NULL);
-	if (!(res = (char*)malloc(ft_strlen(s) + 1)))
+	if (!(res = ft_memalloc(ft_strlen(s) + 1)))
 		return (NULL);
-	res = (char*)malloc(ft_strlen(s) + 1);
+	res = ft_memalloc(ft_strlen(s) + 1);
 	while (s[i] != '\0')
 	{
 		res[i] = f(s[i]);
