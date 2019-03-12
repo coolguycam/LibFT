@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 21:03:40 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/06 05:05:14 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/11 22:18:38 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 int				ft_word_count(char const *s, char c);
-char			*ft_word_delim(char const *s, unsigned int start, char c);
+char			*ft_word_delim(char const *s, char c, int *i);
 
 #endif
