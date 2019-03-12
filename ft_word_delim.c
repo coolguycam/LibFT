@@ -6,7 +6,7 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 04:25:24 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/11 21:48:09 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/11 21:50:55 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_word_delim(char const *s, unsigned int start, char c)
 	if (!(res = (char*)malloc(size)))
 		return (NULL);
 	res = (char*)malloc(size);
-	while (s[start] != c && s[start] != '\0')
+	while (s[start] != c && s[start] != 0)
 	{
 		res[i] = s[start];
 		i++;
