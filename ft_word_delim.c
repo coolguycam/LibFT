@@ -6,36 +6,29 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 04:25:24 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/11 21:50:55 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/11 22:17:06 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_word_delim(char const *s, unsigned int start, char c)
+char	*ft_word_delim(char const *s, char c, int *i)
 {
-	int		i;
-	int		store;
-	int		size;
-	char	*res;
+	char	*s;
+	int		k;
 
-	i = 0;
-	store = start;
-	size = 1;
-	while (s[store] != c)
-	{
-		size++;
-		store++;
-	}
-	if (!(res = (char*)malloc(size)))
+	if (!(s = (char *)malloc(sizeof(s) * (ft_strlen(str)))))
 		return (NULL);
-	res = (char*)malloc(size);
-	while (s[start] != c && s[start] != 0)
+	k = 0;
+	while (str[*i] != c && str[*i])
 	{
-		res[i] = s[start];
-		i++;
-		start++;
+		s[k] = str[*i];
+		k++;
+		*i++;
 	}
-	res[i] = '\0';
-	return (res);
+	s[k] = '\0';
+	while (str[*i] == c && str[*i])
+		*i++;
+	return (s);
 }
+
