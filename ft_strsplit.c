@@ -6,35 +6,71 @@
 /*   By: cdimitro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 16:43:24 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/03/11 21:56:48 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/03/11 21:59:14 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		**ft_strsplit(char const *s, char c)
+static	int		ft_count_words(const char *str, char c)
+{
+	int	word;
+	int	i;
+
+	i = 0;
+	word = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		if (str[i] == c && str[i + 1] != c)
+			word++;
+		i++;
+	}
+	if (str[0] != '\0')
+		word++;
+	return (word);
+}
+
+static	char	*ft_word(const char *str, char c, int *i)
+{
+	char	*s;
+	int		k;
+
+	if (!(s = (char *)malloc(sizeof(s) * (ft_strlen(str)))))
+		return (NULL);
+	k = 0;
+	while (str[*i] != c && str[*i])
+	{
+		s[k] = str[*i];
+		k++;
+		*i += 1;
+	}
+	s[k] = '\0';
+	while (str[*i] == c && str[*i])
+		*i += 1;
+	return (s);
+}
+
+char			**ft_strsplit(const char *str, char c)
 {
 	int		i;
 	int		j;
-	int		k;
-	char	**res;
+	int		wrd;
+	char	**s;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	j = ft_word_count(s, c);
-	k = 0;
-	if (!(res = (char**)malloc(sizeof(char*) * j + 1)))
+	j = 0;
+	wrd = ft_count_words(str, c);
+	if (!(s = (char **)malloc(sizeof(s) * (ft_count_words(str, c) + 2))))
 		return (NULL);
-	while (i < j)
-	{
-		while (s[k] == c && s[k])
-			k++;
-		res[i] = ft_word_delim(s, k, c);
+	while (str[i] == c && str[i])
 		i++;
-		while (s[k] != c && s[k] != 0)
-			k++;
+	while (j < wrd && str[i])
+	{
+		s[j] = ft_word(str, c, &i);
+		j++;
 	}
-	res[i] = NULL;
-	return (res);
+	s[j] = NULL;
+	return (s);
 }
